@@ -508,11 +508,22 @@ def project_index(project_id):
 @app.route("/project/create", methods=['post'])
 def project_create():
     project_name = request.form['project_name']
+    stat_url = request.form['stat_url']
     project = Project()
     project.project_name = project_name
+    project.stat_url = stat_url
     db.session.add(project)
     db.session.commit()
     return redirect("/project/%s/spider/deploy" % project.id, code=302)
+
+@app.route("/project/update", methods=['post'])
+def project_update():
+    stat_url = request.form['stat_url']
+    project_id = request.form['project_id']
+    project = Project.find_project_by_id(project_id)
+    project.stat_url = stat_url
+    db.session.commit()
+    return redirect("/project/manage", code=302)
 
 
 @app.route("/project/<project_id>/delete")

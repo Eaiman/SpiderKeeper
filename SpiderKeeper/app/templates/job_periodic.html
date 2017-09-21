@@ -31,6 +31,7 @@
                 <th style="width: 40px">Priority</th>
                 <th style="width: 100px">Args</th>
                 <th style="width: 40px">Tags</th>
+                <th style="width: 40px">Statistics</th>
                 <th style="width: 40px">Enabled</th>
                 <th style="width: 100px">Action</th>
             </tr>
@@ -63,6 +64,10 @@
                     title="{{ job_instance.spider_arguments }}">{{ job_instance.spider_arguments }}
                 </td>
                 <td>{{ job_instance.tags }}</td>
+                <td>
+                    <a href="{{ project.stat_url }}" target="_blank"><span
+                            class="label label-warning">Statistics</span></a>
+                </td>
                 {% if job_instance.enabled %}
                 <td>
                     <a href="/project/{{ project.id }}/job/{{ job_instance.job_instance_id }}/switch"><span

@@ -65,6 +65,13 @@
                         </li>
                     </ul>
                 </li>
+                {% if project and project.stat_url %}
+                <li style="float: left;" class="bg-primary">
+                    <a href="{{ project.stat_url }}" target="_blank" style="color: white">
+                        <span>Crawling Statistics</span>
+                    </a>
+                </li>
+                {% endif %}
             </ul>
 
         </nav>
@@ -147,6 +154,9 @@
                             <label for="project-name">Project Name</label>
                             <input type="text" name="project_name" id="project-name" class="form-control"
                                    placeholder="Project Name">
+                            <label for="stat-url">Stat URL</label>
+                            <input type="text" name="stat_url" id="stat-url" class="form-control"
+                                   placeholder="Type stat url">
                         </div>
                     </div>
                     <div class="modal-footer">

@@ -7,6 +7,7 @@ class Project(Base):
     __tablename__ = 'sk_project'
 
     project_name = db.Column(db.String(50))
+    stat_url = db.Column(db.String(500))
 
     @classmethod
     def load_project(cls, project_list):
@@ -23,7 +24,8 @@ class Project(Base):
     def to_dict(self):
         return {
             "project_id": self.id,
-            "project_name": self.project_name
+            "project_name": self.project_name,
+            "stat_url": self.stat_url
         }
 
 
